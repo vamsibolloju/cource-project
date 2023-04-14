@@ -31,7 +31,7 @@ app.post('/address', authMiddleware, address);
 app.get('/products', getProducts);
 app.get('/products/categories', getProductCategories);
 app.get('/products/:id', getProductById);
-app.post('/products', saveProduct);
+app.post('/products', authMiddleware, adminMiddleware, saveProduct);
 app.put('/products/:id', authMiddleware, adminMiddleware, updateProduct);
 app.delete('/products/:id', authMiddleware, adminMiddleware, deleteProduct);
 
